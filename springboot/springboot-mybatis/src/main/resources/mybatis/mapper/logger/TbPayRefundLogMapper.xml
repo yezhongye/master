@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ye.mapper.TbPayRefundLogMapper" >
+	<resultMap id="BaseResultMap" type="com.ye.entity.TbPayRefundLogDto" >
+        <id column="id" property="tId" jdbcType="BIGINT" />
+        <result column="refund_no" property="refundNo" jdbcType="VARCHAR" />
+        <result column="order_code" property="orderCode" jdbcType="VARCHAR" />
+        <result column="transaction_no" property="transactionNo" jdbcType="VARCHAR" />
+        <result column="pay_type" property="payType" jdbcType="VARCHAR" />
+        <result column="refund_status" property="refundStatus" jdbcType="INTEGER" />
+        <result column="order_amount" property="orderAmount" jdbcType="DECIMAL" />
+        <result column="refund_amount" property="refundAmount" jdbcType="DECIMAL" />
+        <result column="refund_time" property="refundTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        id, refund_no, order_code, transaction_no, pay_type, refund_status, order_amount, 
+        refund_amount, refund_time
+    </sql>
+    
+    <insert id="insert" parameterType="com.ye.entity.TbPayRefundLogDto">
+        <!-- <selectKey resultType="java.lang.Long" keyProperty="tId" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey> -->
+        insert into tb_pay_refund_log 
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+        	<if test="tId != null" >
+                id,
+            </if>
+            <if test="refundNo != null" >
+                refund_no,
+            </if>
+            <if test="orderCode != null" >
+                order_code,
+            </if>
+            <if test="transactionNo != null" >
+                transaction_no,
+            </if>
+            <if test="payType != null" >
+                pay_type,
+            </if>
+            <if test="refundStatus != null" >
+                refund_status,
+            </if>
+            <if test="orderAmount != null" >
+                order_amount,
+            </if>
+            <if test="refundAmount != null" >
+                refund_amount,
+            </if>
+            <if test="refundTime != null" >
+                refund_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="tId != null" >
+                #{tId,jdbcType=BIGINT},
+            </if>
+            <if test="refundNo != null" >
+                #{refundNo,jdbcType=VARCHAR},
+            </if>
+            <if test="orderCode != null" >
+                #{orderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="transactionNo != null" >
+                #{transactionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="payType != null" >
+                #{payType,jdbcType=VARCHAR},
+            </if>
+            <if test="refundStatus != null" >
+                #{refundStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="orderAmount != null" >
+                #{orderAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="refundAmount != null" >
+                #{refundAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="refundTime != null" >
+                #{refundTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM tb_pay_refund_log
+	   WHERE id = #{tId}
+    </select>
+</mapper>
