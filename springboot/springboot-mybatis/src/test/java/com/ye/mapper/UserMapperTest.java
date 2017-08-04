@@ -23,5 +23,11 @@ public class UserMapperTest {
 		tbPayRefundLogMapper.insert(tp);
 		System.out.println(1);
 	}
+	@Test
+	public void query(){
+		TbPayRefundLogDto tp = tbPayRefundLogMapper.getOne(1L);
+		System.out.println(tp.getOrderCode());
+		System.out.println(tp.getRefundNo());
+	}
 
 }
