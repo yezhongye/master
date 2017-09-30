@@ -18,8 +18,11 @@
     <!--<dubbo:protocol name="dubbo" port="29017" />-->
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.ye.dubbo.provider.inf.MyTest" ref="myTestService" />
+    <dubbo:service group="zero" interface="com.ye.dubbo.provider.inf.MyTest" ref="myTestService" version="1.0.0"/>
 
+    <dubbo:service group="one" interface="com.ye.dubbo.provider.inf.MyTest" ref="myOneTestService" version="1.0.0"/>
     <!-- 和本地bean一样实现服务 -->
     <bean id="myTestService" class="com.ye.dubbo.provider.MyTestImpl" />
+
+    <bean id="myOneTestService" class="com.ye.dubbo.provider.MyOneTestImpl" />
 </beans>

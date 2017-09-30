@@ -5,10 +5,10 @@ import com.ye.dubbo.provider.inf.MyTest;
 /**
  * Created by zjx on 2017/9/25 0025.
  */
-public class MyTestImpl implements MyTest {
+public class MyOneTestImpl implements MyTest {
 
     @Override
     public String sayHello(String name) {
-        return "你好，"+name+" 你属于默认分组!";
+        return "你好，"+name+" 你属于one分组!";
     }
 }
