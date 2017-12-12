@@ -10,10 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ye</groupId>
-    <artifactId>com.ye.db.employee.entity</artifactId>
-    <properties>
-        <start-class>com.ye.db.employee.entity.ApplicationMainClass</start-class>
-    </properties>
+    <artifactId>com.ye.dubbo.user.provider.inf</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.ye</groupId>
+            <artifactId>com.ye.db.employee.entity</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

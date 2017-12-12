@@ -10,27 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ye</groupId>
-    <artifactId>com.ye.dubbo.provider</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>com.ye.dubbo.user.provider</artifactId>
+
+
     <dependencies>
         <dependency>
             <groupId>com.ye</groupId>
-            <artifactId>com.ye.dubbo.provider.inf</artifactId>
+            <artifactId>com.ye.dubbo.user.provider.inf</artifactId>
             <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-validator</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -56,6 +43,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-    </dependencies>
 
+    </dependencies>
 </project>

@@ -11,6 +11,9 @@
 
     <groupId>com.ye</groupId>
     <artifactId>com.ye.dubbo.provider.inf</artifactId>
-
+    <packaging>jar</packaging>
+    <properties>
+        <start-class>com.ye.dubbo.provider.inf.ApplicationMainClass</start-class>
+    </properties>
 
 </project>

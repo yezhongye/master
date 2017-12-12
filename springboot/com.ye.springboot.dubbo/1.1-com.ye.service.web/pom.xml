@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.ye</groupId>
     <artifactId>com.ye.service.web</artifactId>
-    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
