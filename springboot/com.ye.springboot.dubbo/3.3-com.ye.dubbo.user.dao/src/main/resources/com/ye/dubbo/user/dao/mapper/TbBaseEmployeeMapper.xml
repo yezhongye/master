@@ -181,4 +181,21 @@
       is_delete = #{isDelete,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <select id="selectSelective"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_base_employee
+        <where>
+            <if test="record.isCachedUpdated != null">
+                and is_cached_updated = #{record.isCachedUpdated,jdbcType=DECIMAL}
+            </if>
+            <if test="record.isDelete != null">
+                and is_delete = #{record.isDelete,jdbcType=DECIMAL}
+            </if>
+            <if test="pageWhere.pageSize != null">
+                <![CDATA[ and ROWNUM <= #{pageWhere.pageSize}]]>
+            </if>
+        </where>
+        order by ID desc
+    </select>
 </mapper>
