@@ -47,6 +47,7 @@
         <jcabi-manifests.version>1.1</jcabi-manifests.version>
         <redis.version>2.8.0</redis.version>
         <commons-lang.version>2.6</commons-lang.version>
+        <commons-configuration>1.9</commons-configuration>
     </properties>
 
     <dependencyManagement>
@@ -122,6 +123,11 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>${commons-configuration}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -157,6 +163,41 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <!--Maven根据不同的环境进行打包begin-->
+        <!--各环境资源文件-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 资源根目录排除各环境的配置，使用单独的资源目录来指定 -->
+                <excludes>
+                    <exclude>properties/test/*</exclude>
+                    <exclude>properties/local/*</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/properties/${env}</directory>
+            </resource>
+        </resources>
+        <!--Maven根据不同的环境进行打包end-->
     </build>
-
+    <!--Maven根据不同的环境进行打包begin-->
+    <!--各环境区别配置-->
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>local</id>
+            <properties>
+                <env>local</env>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+    <!--Maven根据不同的环境进行打包end-->
 </project>
