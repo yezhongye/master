@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ye.dubbo.statement.dao.mapper.TbBfOrderFileMapper" >
+  <resultMap id="BaseResultMap" type="com.ye.db.employee.entity.statement.TbBfOrderFile" >
+    <id column="b_id" property="bId" jdbcType="VARCHAR" />
+    <result column="b_member_id" property="bMemberId" jdbcType="VARCHAR" />
+    <result column="b_terminal_ud" property="bTerminalUd" jdbcType="VARCHAR" />
+    <result column="b_txn_type" property="bTxnType" jdbcType="VARCHAR" />
+    <result column="b_txn_sub_type" property="bTxnSubType" jdbcType="VARCHAR" />
+    <result column="b_bf_order_no" property="bBfOrderNo" jdbcType="VARCHAR" />
+    <result column="b_trans_id" property="bTransId" jdbcType="VARCHAR" />
+    <result column="b_settlement_time" property="bSettlementTime" jdbcType="TIMESTAMP" />
+    <result column="b_order_status" property="bOrderStatus" jdbcType="VARCHAR" />
+    <result column="b_txn_amt" property="bTxnAmt" jdbcType="VARCHAR" />
+    <result column="b_service_amt" property="bServiceAmt" jdbcType="VARCHAR" />
+    <result column="b_trans_no" property="bTransNo" jdbcType="VARCHAR" />
+    <result column="b_pay_order_create_time" property="bPayOrderCreateTime" jdbcType="TIMESTAMP" />
+    <result column="b_refund_trans_id" property="bRefundTransId" jdbcType="VARCHAR" />
+    <result column="b_refund_order_create_time" property="bRefundOrderCreateTime" jdbcType="TIMESTAMP" />
+    <result column="b_create_time" property="bCreateTime" jdbcType="TIMESTAMP" />
+    <result column="b_update_time" property="bUpdateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    b_id, b_member_id, b_terminal_ud, b_txn_type, b_txn_sub_type, b_bf_order_no, b_trans_id, 
+    b_settlement_time, b_order_status, b_txn_amt, b_service_amt, b_trans_no, b_pay_order_create_time, 
+    b_refund_trans_id, b_refund_order_create_time, b_create_time, b_update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_bf_order_file
+    where b_id = #{bId,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.ye.db.employee.entity.statement.TbBfOrderFile" useGeneratedKeys="true" keyProperty="bId" >
+    insert into tb_bf_order_file (b_member_id, b_terminal_ud, b_txn_type, 
+      b_txn_sub_type, b_bf_order_no, b_trans_id, 
+      b_settlement_time, b_order_status, b_txn_amt, 
+      b_service_amt, b_trans_no, b_pay_order_create_time, 
+      b_refund_trans_id, b_refund_order_create_time, 
+      b_create_time, b_update_time)
+    values (#{bMemberId,jdbcType=VARCHAR}, #{bTerminalUd,jdbcType=VARCHAR}, #{bTxnType,jdbcType=VARCHAR}, 
+      #{bTxnSubType,jdbcType=VARCHAR}, #{bBfOrderNo,jdbcType=VARCHAR}, #{bTransId,jdbcType=VARCHAR}, 
+      #{bSettlementTime,jdbcType=TIMESTAMP}, #{bOrderStatus,jdbcType=VARCHAR}, #{bTxnAmt,jdbcType=VARCHAR}, 
+      #{bServiceAmt,jdbcType=VARCHAR}, #{bTransNo,jdbcType=VARCHAR}, #{bPayOrderCreateTime,jdbcType=TIMESTAMP}, 
+      #{bRefundTransId,jdbcType=VARCHAR}, #{bRefundOrderCreateTime,jdbcType=TIMESTAMP}, 
+      #{bCreateTime,jdbcType=TIMESTAMP}, #{bUpdateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ye.db.employee.entity.statement.TbBfOrderFile" useGeneratedKeys="true" keyProperty="bId" >
+    insert into tb_bf_order_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bMemberId != null" >
+        b_member_id,
+      </if>
+      <if test="bTerminalUd != null" >
+        b_terminal_ud,
+      </if>
+      <if test="bTxnType != null" >
+        b_txn_type,
+      </if>
+      <if test="bTxnSubType != null" >
+        b_txn_sub_type,
+      </if>
+      <if test="bBfOrderNo != null" >
+        b_bf_order_no,
+      </if>
+      <if test="bTransId != null" >
+        b_trans_id,
+      </if>
+      <if test="bSettlementTime != null" >
+        b_settlement_time,
+      </if>
+      <if test="bOrderStatus != null" >
+        b_order_status,
+      </if>
+      <if test="bTxnAmt != null" >
+        b_txn_amt,
+      </if>
+      <if test="bServiceAmt != null" >
+        b_service_amt,
+      </if>
+      <if test="bTransNo != null" >
+        b_trans_no,
+      </if>
+      <if test="bPayOrderCreateTime != null" >
+        b_pay_order_create_time,
+      </if>
+      <if test="bRefundTransId != null" >
+        b_refund_trans_id,
+      </if>
+      <if test="bRefundOrderCreateTime != null" >
+        b_refund_order_create_time,
+      </if>
+      <if test="bCreateTime != null" >
+        b_create_time,
+      </if>
+      <if test="bUpdateTime != null" >
+        b_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bMemberId != null" >
+        #{bMemberId,jdbcType=VARCHAR},
+      </if>
+      <if test="bTerminalUd != null" >
+        #{bTerminalUd,jdbcType=VARCHAR},
+      </if>
+      <if test="bTxnType != null" >
+        #{bTxnType,jdbcType=VARCHAR},
+      </if>
+      <if test="bTxnSubType != null" >
+        #{bTxnSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="bBfOrderNo != null" >
+        #{bBfOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bTransId != null" >
+        #{bTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="bSettlementTime != null" >
+        #{bSettlementTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bOrderStatus != null" >
+        #{bOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="bTxnAmt != null" >
+        #{bTxnAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="bServiceAmt != null" >
+        #{bServiceAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="bTransNo != null" >
+        #{bTransNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bPayOrderCreateTime != null" >
+        #{bPayOrderCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bRefundTransId != null" >
+        #{bRefundTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="bRefundOrderCreateTime != null" >
+        #{bRefundOrderCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bCreateTime != null" >
+        #{bCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bUpdateTime != null" >
+        #{bUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ye.db.employee.entity.statement.TbBfOrderFile" >
+    update tb_bf_order_file
+    <set >
+      <if test="bMemberId != null" >
+        b_member_id = #{bMemberId,jdbcType=VARCHAR},
+      </if>
+      <if test="bTerminalUd != null" >
+        b_terminal_ud = #{bTerminalUd,jdbcType=VARCHAR},
+      </if>
+      <if test="bTxnType != null" >
+        b_txn_type = #{bTxnType,jdbcType=VARCHAR},
+      </if>
+      <if test="bTxnSubType != null" >
+        b_txn_sub_type = #{bTxnSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="bBfOrderNo != null" >
+        b_bf_order_no = #{bBfOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bTransId != null" >
+        b_trans_id = #{bTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="bSettlementTime != null" >
+        b_settlement_time = #{bSettlementTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bOrderStatus != null" >
+        b_order_status = #{bOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="bTxnAmt != null" >
+        b_txn_amt = #{bTxnAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="bServiceAmt != null" >
+        b_service_amt = #{bServiceAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="bTransNo != null" >
+        b_trans_no = #{bTransNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bPayOrderCreateTime != null" >
+        b_pay_order_create_time = #{bPayOrderCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bRefundTransId != null" >
+        b_refund_trans_id = #{bRefundTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="bRefundOrderCreateTime != null" >
+        b_refund_order_create_time = #{bRefundOrderCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bCreateTime != null" >
+        b_create_time = #{bCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bUpdateTime != null" >
+        b_update_time = #{bUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where b_id = #{bId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ye.db.employee.entity.statement.TbBfOrderFile" >
+    update tb_bf_order_file
+    set b_member_id = #{bMemberId,jdbcType=VARCHAR},
+      b_terminal_ud = #{bTerminalUd,jdbcType=VARCHAR},
+      b_txn_type = #{bTxnType,jdbcType=VARCHAR},
+      b_txn_sub_type = #{bTxnSubType,jdbcType=VARCHAR},
+      b_bf_order_no = #{bBfOrderNo,jdbcType=VARCHAR},
+      b_trans_id = #{bTransId,jdbcType=VARCHAR},
+      b_settlement_time = #{bSettlementTime,jdbcType=TIMESTAMP},
+      b_order_status = #{bOrderStatus,jdbcType=VARCHAR},
+      b_txn_amt = #{bTxnAmt,jdbcType=VARCHAR},
+      b_service_amt = #{bServiceAmt,jdbcType=VARCHAR},
+      b_trans_no = #{bTransNo,jdbcType=VARCHAR},
+      b_pay_order_create_time = #{bPayOrderCreateTime,jdbcType=TIMESTAMP},
+      b_refund_trans_id = #{bRefundTransId,jdbcType=VARCHAR},
+      b_refund_order_create_time = #{bRefundOrderCreateTime,jdbcType=TIMESTAMP},
+      b_create_time = #{bCreateTime,jdbcType=TIMESTAMP},
+      b_update_time = #{bUpdateTime,jdbcType=TIMESTAMP}
+    where b_id = #{bId,jdbcType=VARCHAR}
+  </update>
+</mapper>

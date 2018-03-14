@@ -9,12 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ye</groupId>
-    <artifactId>com.ye.db.employee.entity</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>com.ye.dubbo.statement.provider.inf</artifactId>
     <properties>
-        <start-class>com.ye.db.employee.entity.ApplicationMainClass</start-class>
+        <start-class>com.ye.dubbo.statement.service.inf.bf.ApplicationMainClass</start-class>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.ye</groupId>
+            <artifactId>com.ye.db.employee.entity</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
